@@ -1,0 +1,6 @@
+%tr
+  %td= site.id
+  %td= site.name
+  %td= site.url
+  %td= t("categories.#{site.category_code}")
+  %td= link_to '表示', edit_admin_site_path(site), { class: 'btn btn-primary btn-sm btn-block' }

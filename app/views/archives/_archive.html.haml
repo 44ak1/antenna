@@ -1,0 +1,13 @@
+%li.col-6
+  .list
+    .archive_left
+      .archive_thumb
+        = image_tag archive.image.url(:thumb) if archive.image.present?
+    .archive_right
+      .archive_title
+        = link_to archive_path(uuid:archive.uuid), class: 'thumb_link' do
+          = archive.title
+      .archive_site_name
+        = archive.site.name
+      .archive_published_at
+        = archive.created_at.to_s(:human)

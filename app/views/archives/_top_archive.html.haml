@@ -1,0 +1,14 @@
+%li.col-12
+  .top
+    .archive_left
+      .archive_title
+        = strip_tags(archive.title)
+      .archive_lead
+        = strip_tags(archive.description)
+      .archive_site_name
+        = archive.site.name
+      .archive_published_at
+        = archive.created_at.to_s(:human)
+    .archive_right
+      .archive_thumb
+        = image_tag archive.image.url(:thumb) if archive.image.present?

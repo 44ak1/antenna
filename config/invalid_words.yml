@@ -1,0 +1,8 @@
+removal:
+  - 削除する
+  - 削除する
+
+replace:
+  -
+    before: てすと
+    after: 置換されました

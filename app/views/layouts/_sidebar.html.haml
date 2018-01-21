@@ -1,0 +1,13 @@
+.sidebar
+  .column
+    .ranking_title
+      ランキング総合
+    .ranking_lead
+      最近人気のあった記事
+      .pickups
+        - Archive.pickups.each do |archive|
+          .pickup
+            .pickup_thumb
+              = image_tag archive.image.url(:thumb) if archive.image.present?
+            .pickup_title
+              = archive.title

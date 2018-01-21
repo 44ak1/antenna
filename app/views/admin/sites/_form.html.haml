@@ -1,0 +1,53 @@
+.box
+  .box-header.with-border
+    %h3.box-title
+      - if site.persisted?
+        編集: ##{site.id}
+      - else
+        新規作成
+
+  - url = site.persisted? ? admin_site_path(site) : admin_sites_path
+  = form_for(site, url: url, html: { class: 'form-horizontal', role: 'form' }) do |f|
+    .box-body
+      .form-group
+        %label.col-md-2.control-label{ for: 'name' } サイト名
+        .col-sm-10
+          = f.text_field :name, placeholder: '', class: 'form-control'
+
+      .form-group
+        %label.col-md-2.control-label{ for: 'url' } URL
+        .col-sm-10
+          = f.text_field :url, placeholder: 'http://mobantenna.com/', class: 'form-control'
+
+      .form-group
+        %label.col-md-2.control-label{ for: 'rss_url' } RSS
+        .col-sm-10
+          = f.text_field :rss_url, placeholder: 'http://mobantenna.com/rss.xml', class: 'form-control'
+
+      .form-group
+        %label.col-md-2.control-label{ for: 'email' } メールアドレス
+        .col-sm-10
+          = f.text_field :email, placeholder: 'webmaster@example.com', class: 'form-control'
+
+      .form-group
+        %label.col-md-2.control-label{ for: 'description' } サイト詳細
+        .col-sm-10
+          = f.text_area :description, placeholder: 'まとめサイトです。', class: 'form-control'
+
+      .form-group
+        %label.col-md-2.control-label{ for: 'category_code' } カテゴリ
+        .col-sm-10
+          = f.select :category_code, Site::CATEGORIES.map { |c| [t("categories.#{c}"), c] }, { class: 'form-control' }
+
+    .box-footer
+      .row
+        .col-md-offset-2.col-md-10
+          =button_tag class: 'btn btn-info' do
+            %i.ace-icon.fa.fa-check.bigger-110
+            保存
+
+          - if site.persisted?
+            = link_to admin_site_path, class: 'btn btn-danger delete_button',
+              method: :delete, data: { confirm: '削除してもよろしいですか？' } do
+              %i.ace-icon.fa.fa-trash-o.bigger-110
+              削除

@@ -1,0 +1,30 @@
+.registrations {
+  #registration {
+    .content_title {
+      background-color: #f7f7f7;
+
+      .container {
+        max-width: 980px;
+
+        h1 {
+          font-size: 26px;
+          height: 100px;
+          line-height: 100px;
+        }
+      }
+    }
+
+    .content_body {
+      .container {
+        max-width: 720px;
+      }
+    }
+
+    h2 {
+      font-size: 18px;
+      padding-bottom: 9px;
+      margin: 40px 0 20px;
+      border-bottom: 1px solid #eee;
+    }
+  }
+}

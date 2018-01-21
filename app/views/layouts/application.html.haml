@@ -1,0 +1,29 @@
+!!!
+%html
+  %head
+    %meta{ charset: 'utf-8' }
+    %meta{ 'http-equiv' => 'x-ua-compatible', 'content' => 'IE=edge' }
+    = title_and_meta_tags
+    = csrf_meta_tags
+    = stylesheet_link_tag 'application', media: 'all'
+    = raw yield :css
+    = javascript_include_tag 'application'
+
+  %body{ class: "#{absolute_css_class_name}", id: 'pc_page' }
+    #header_wrapper
+      #header_wrapper_inner
+        = render 'layouts/header'
+
+    %nav.nav
+      %ul.nav_categories
+        - current = params[:category] || '2ch'
+        - categories.each do |category|
+          %li.nav_category{ class: current == category ? "current #{category}" : category }
+            = link_to t("categories.#{category}"), category_path(category)
+
+    %main
+      = content_for(:content_main) ? yield(:content_main) : yield
+
+    #footer_wrapper
+      #footer_wrapper_inner
+        = render 'layouts/footer'

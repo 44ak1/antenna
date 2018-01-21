@@ -7,19 +7,24 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Site.create!(
-  site_name:  "拡散なうなうなーう",
+  name: "拡散なうなうなーう",
   url: "http://torendoimasyun.blog.jp/",
   domain: "torendoimasyun.blog.jp",
   rss_url: "http://torendoimasyun.blog.jp/index.rdf",
-  mail: "makochibi154@yahoo.co.jp"
+  email: "makochibi154@yahoo.co.jp",
+  category_code: "2ch",
 )
-Archive.create!(
-  site_id: Site.first.id,
-  ymd: Date.today.strftime("%Y-%m-%d"),
-  hour: Date.today.strftime("%h"),
-  url: "http://torendoimasyun.blog.jp/archives/3343969.html",
-  site_name: Site.first.site_name,
-  title: "【火災情報】京都京都市南区西九条豊田町付近で火事",
-  description: "【火災情報】京都京都市南区西九条豊田町付近で火事-matomame",
-  thumbnail: "http://livedoor.blogimg.jp/makoantena1805/imgs/6/3/638f2f1f.jpg"
-)
+
+10.times do |i|
+  Archive.create!(
+    site_id: Site.first.id,
+    ymd: Date.today.strftime("%Y-%m-%d"),
+    hour: Date.today.strftime("%h"),
+    url: "http://torendoimasyun.blog.jp/archives/3343969.html?#{i}",
+    site_name: Site.first.name,
+    title: "【火災情報】削除する京都京都市南区西九条豊田町付近で火事てすと#{i}",
+    description: "【火災情報】京都京都市南区西九条豊田町付近で火事-matomame#{i}<img src='https://images-fe.ssl-images-amazon.com/images/I/51OJyaiQs2L.jpg'>",
+#    thumbnail: "http://livedoor.blogimg.jp/makoantena1805/imgs/6/3/638f2f1f.jpg",
+    category_code: "2ch",
+  )
+end

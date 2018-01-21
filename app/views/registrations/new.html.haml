@@ -1,0 +1,11 @@
+= render 'layouts/breadcrumb', breadcrumb: { 'ブログ運営者向け': guidline_path, 'サイト登録申請': new_registration_path }
+
+#registration
+  .content_title
+    .container
+      %h1 サイト登録申請
+
+  .content_body
+    .container
+      = bootstrap_flash
+      = render 'form', site: @site

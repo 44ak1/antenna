@@ -5,7 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
 # Use sqlite3 as the database for Active Record
@@ -18,6 +17,13 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+
+gem 'dotenv-rails'
+gem 'carrierwave'
+gem 'fog'
+gem 'mini_magick'
+
+gem 'sunspot_rails'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -33,6 +39,19 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'content_for_once'
+
+gem 'bootstrap', '~> 4.0.0.beta2.1'
+#gem 'bootstrap-sass'
+gem 'jquery-rails'
+
+gem 'haml-rails'
+gem 'rails-i18n'
+gem 'kaminari'
+gem 'kaminari-bootstrap', '~> 3.0.1'
+
+gem 'feedjira'
+
 group :development, :test do
   gem 'rspec-rails', '~> 2.14.0'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -40,6 +59,8 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  # solr
+  gem 'sunspot_solr'
 end
 
 group :development do

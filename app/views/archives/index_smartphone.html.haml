@@ -1,0 +1,11 @@
+%h1 まとめ記事ヘッドライン
+sp
+= page_entries_info @archives
+
+%ul.archives
+  = render @archives
+
+= paginate @archives
+
+- Archive::CATEGORIES.each do |category|
+  = link_to t("categories.#{category}"), category_path(category)

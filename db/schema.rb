@@ -13,45 +13,49 @@
 ActiveRecord::Schema.define(version: 20170828014317) do
 
   create_table "archives", force: :cascade do |t|
-    t.date "ymd"
-    t.integer "hour"
-    t.string "url", limit: 256
-    t.string "site_name", limit: 256
-    t.string "title", limit: 256
-    t.string "description", limit: 256
-    t.string "thumbnail", limit: 256
-    t.string "tag", limit: 512
-    t.string "category_code", limit: 32
+    t.string "uuid", limit: 15, null: false
+    t.string "url", limit: 255
+    t.string "title", limit: 255
+    t.string "description", limit: 255
+    t.string "real_image_url", limit: 255
+    t.string "image", limit: 255
+    t.string "tag", limit: 511
     t.integer "pv", default: 0, null: false
-    t.boolean "is_adult", default: false
+    t.datetime "published_at"
+    t.boolean "is_safety", default: true
     t.boolean "is_active", default: true
     t.integer "site_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["is_active"], name: "index_archives_on_is_active"
+    t.index ["is_safety"], name: "index_archives_on_is_safety"
+    t.index ["published_at"], name: "index_archives_on_published_at"
     t.index ["site_id"], name: "index_archives_on_site_id"
+    t.index ["uuid"], name: "index_archives_on_uuid", unique: true
   end
 
   create_table "sites", force: :cascade do |t|
-    t.string "site_name", limit: 256, null: false
-    t.string "url", limit: 256, null: false
-    t.string "domain", limit: 256
-    t.string "rss_url", limit: 256, null: false
-    t.string "mail", limit: 256
+    t.string "name", limit: 255, null: false
+    t.string "url", limit: 255, null: false
+    t.string "domain", limit: 255
+    t.string "rss_url", limit: 255, null: false
+    t.string "email", limit: 255
     t.text "description"
     t.integer "rate", default: 1, null: false
     t.integer "rank", default: 0, null: false
-    t.integer "mod_interval", default: 0, null: false
-    t.integer "pv", default: 0, null: false
-    t.integer "outpv", default: 0, null: false
+    t.integer "modify_interval", default: 0, null: false
+    t.integer "in", default: 0, null: false
+    t.integer "out", default: 0, null: false
     t.string "category_code", limit: 32
-    t.datetime "succeed_at"
+    t.boolean "is_crawlable", default: true, null: false
+    t.datetime "successed_at"
     t.datetime "errored_at"
-    t.datetime "pv_updated_at"
-    t.boolean "is_stop", default: false, null: false
-    t.datetime "stoped_at"
+    t.boolean "is_recommendable", default: true, null: false
+    t.datetime "unrecommended_at"
     t.boolean "is_active", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_sites_on_name", unique: true
   end
 
 end

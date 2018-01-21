@@ -1,0 +1,35 @@
+.box
+  .box-header.with-border
+  = form_for(site, url: registration_path, html: { class: 'form-horizontal', role: 'form' }) do |f|
+    .box-body
+      .form-group
+        %label.col-md-2.control-label{ for: 'name' } サイト名
+        .col-sm-10
+          = f.text_field :name, placeholder: '', class: 'form-control'
+
+      .form-group
+        %label.col-md-2.control-label{ for: 'url' } URL
+        .col-sm-10
+          = f.text_field :url, placeholder: 'http://example.com/', class: 'form-control'
+
+      .form-group
+        %label.col-md-2.control-label{ for: 'rss_url' } RSS
+        .col-sm-10
+          = f.text_field :rss_url, placeholder: 'http://example.com/rss.xml', class: 'form-control'
+
+      .form-group
+        %label.col-md-2.control-label{ for: 'email' } メールアドレス
+        .col-sm-10
+          = f.text_field :email, placeholder: 'webmaster@example.com', class: 'form-control'
+
+      .form-group
+        %label.col-md-2.control-label{ for: 'category_code' } カテゴリ
+        .col-sm-10
+          = f.select :category_code, Site::CATEGORIES.map { |c| [t("categories.#{c}"), c] }, { class: 'form-control' }
+
+    .box-footer
+      .row
+        .col-md-offset-2.col-md-10
+          =button_tag class: 'btn btn-info' do
+            %i.ace-icon.fa.fa-check.bigger-110
+            登録

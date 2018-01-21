@@ -1,0 +1,31 @@
+= render 'layouts/breadcrumb', breadcrumb: { 'ブログ運営者向け': guidline_path }
+
+#guidline
+  .content_title
+    .container
+      %h1 ブログ運営者様へ
+
+  .container
+    %h2 このサイトについて
+    %p
+      もぶアンテナはまとめサイトについての情報を掲載しているブログの人気エントリーや新着エントリーを紹介するアンテナサイトです。
+
+    %h2 参加方法
+    %ol
+      %li
+        = link_to 'ブログ登録フォーム', new_registration_path
+        よりブログ登録を行ってください。
+      %li リンク、RSS等の方法でもぶアンテナへのアクセスを送ってください。
+      %li アクセス数に応じて、もぶアンテナで記事が配信されます。
+
+    %h2 配信RSS一覧
+    %ul
+    - feed_categories.each do |category|
+      %li
+        = link_to t("feeds.#{category}"), rss_path(category, format: :xml)
+
+    %h2 アクセスランキング
+    %p
+      ランキングに参加するには
+      =link_to 'ブログ登録', new_registration_path
+      をしてください。

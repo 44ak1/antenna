@@ -1,0 +1,30 @@
+%section.content-header
+  %h1 サイト
+    
+  %ol.breadcrumb
+    %li.active
+      サイト
+
+%section.content
+  = bootstrap_flash
+  .box
+    .box-header
+      = link_to new_admin_site_path, { class: 'btn btn-primary' } do
+        %i.fa.fa-plus
+        新規作成
+
+    .box-body.table-responsive
+      = page_entries_info @sites
+      
+      %table.table.table-bordered
+        %thead
+          %tr
+            %th #
+            %th サイト名
+            %th URL
+            %th カテゴリ
+            %th 操作
+        %tbody
+          = render @sites
+
+    = paginate @sites

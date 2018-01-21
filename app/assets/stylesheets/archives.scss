@@ -1,3 +1,121 @@
-// Place all the styles related to the archives controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+nav {
+  background: #fff;
+  border-bottom: solid 1px #efefef;
+
+  * {
+    border: 0;
+  }
+
+  .nav_categories {
+    padding: 0 20px;
+    position: relative;
+    margin: 0 auto;
+    width: 1032px;
+    height: 45px;
+    list-style: none;
+
+    .current a {
+      border-bottom-width: 3px;
+    }
+
+    .nav_category {
+      float: left;
+      display: block;
+      padding: 0 17px;
+      border: none;
+
+      a {
+        border-color: #FF5577;
+        display: block;
+        padding: 0 8px;
+        font-weight: bold;
+        font-size: 90%;
+        height: 45px;
+        line-height: 45px;
+        box-sizing: border-box;
+        border-bottom-style: solid;
+        transition: border-width .12s ease-in-out;
+        color: #333;
+      }
+    }
+  }
+}
+.archives {
+  li {
+    list-style-type: none;
+    border-bottom: 1px solid #eee;
+  }
+  .top {
+    position: relative;
+    padding: 15px 0;
+    display: table;
+    box-sizing: inherit;
+    word-wrap: break-word;
+    width: 100%;
+
+    .archive_left {
+      display: table-cell;
+      vertical-align: top;
+      width: 90%;
+
+      .archive_title {
+        font-size: 19px;
+        font-weight: bold;
+        color: #333;
+      }
+      .archive_lead {
+        font-size: 70%;
+        color: #999;
+      }
+    }
+    .archive_right {
+      padding-left: 24px;
+      display: table-cell;
+      width: 10%;
+
+      .archive_thumb {
+        img {
+          width: 210px;
+          height: 130px;
+        }
+      }
+    }
+  }
+  .list {
+    position: relative;
+    padding: 12px 0;
+    display: table;
+    box-sizing: inherit;
+    word-wrap: break-word;
+    width: 294px;
+    height: 110px;
+//    border-bottom: 1px solid #eee;
+
+    .archive_left {
+      display: table-cell;
+      padding-right: 12px;
+      width: 85px;
+      height: 85px;
+
+      .archive_thumb {
+        img {
+          width: 85px;
+          height: 85px;
+        }
+      }
+    }
+    .archive_right {
+      display: table-cell;
+      vertical-align: top;
+      width: 90%;
+
+      .archive_title {
+        a {
+          font-size: 15px;
+          font-weight: bold;
+          color: #333;
+        }
+      }
+    }
+  }
+}

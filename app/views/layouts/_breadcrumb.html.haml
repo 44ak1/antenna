@@ -1,0 +1,10 @@
+.breadcrumb
+  .breadcrumb_inner
+    %ul
+      %li
+        = link_to root_path do
+          %span もぶアンテナトップ
+      - breadcrumb.each do |title, url|
+        %li
+          = link_to url do
+            %span #{title}

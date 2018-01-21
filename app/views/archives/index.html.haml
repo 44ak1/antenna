@@ -1,0 +1,7 @@
+.container
+  - if @archives.present?
+    %ul.archives.row
+      = render 'top_archive', archive: @archives.last
+      = render @archives.drop(1)
+
+    = paginate @archives
