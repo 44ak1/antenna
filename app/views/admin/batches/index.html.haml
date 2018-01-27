@@ -1,0 +1,29 @@
+%section.content-header
+  %h1 バッチ管理
+    
+  %ol.breadcrumb
+    %li.active
+      バッチ管理
+
+%section.content
+  = bootstrap_flash
+  .box
+    .box-header
+      = link_to new_admin_batch_path, { class: 'btn btn-primary' } do
+        %i.fa.fa-plus
+        新規作成
+
+    .box-body.table-responsive
+      = page_entries_info @batches
+
+      %table.table.table-bordered
+        %thead
+          %tr
+            %th #
+            %th バッチ名
+            %th コマンド
+            %th 操作
+        %tbody
+          = render @batches
+
+    = paginate @batches

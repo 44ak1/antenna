@@ -1,0 +1,33 @@
+.box
+  .box-header.with-border
+    %h3.box-title
+      - if batch.persisted?
+        編集: ##{batch.id}
+      - else
+        新規作成
+
+  - url = batch.persisted? ? admin_batch_path(batch) : admin_batch_path
+  = form_for(batch, url: url, html: { class: 'form-horizontal', role: 'form' }) do |f|
+    .box-body
+      .form-group
+        %label.col-md-2.control-label{ for: 'name' } バッチ名
+        .col-sm-10
+          = f.text_field :name, placeholder: '', class: 'form-control'
+
+      .form-group
+        %label.col-md-2.control-label{ for: 'command' } コマンド
+        .col-sm-10
+          = f.text_area :command, placeholder: '', class: 'form-control'
+
+    .box-footer
+      .row
+        .col-md-offset-2.col-md-10
+          =button_tag class: 'btn btn-info' do
+            %i.ace-icon.fa.fa-check.bigger-110
+            保存
+
+          - if site.persisted?
+            = link_to admin_site_path, class: 'btn btn-danger delete_button',
+              method: :delete, data: { confirm: '削除してもよろしいですか？' } do
+              %i.ace-icon.fa.fa-trash-o.bigger-110
+              削除

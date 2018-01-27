@@ -1,0 +1,7 @@
+%tr
+  %td= batch.id
+  %td= batch.name
+  %td= batch.command
+  %td
+    = link_to '表示', edit_admin_batch_path(batch), { class: 'btn btn-primary btn-sm btn-block' }
+    = link_to '実行', exec_admin_batch_path(batch), { class: 'btn btn-primary btn-sm btn-block' }

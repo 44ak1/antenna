@@ -1,0 +1,12 @@
+%section.content-header
+  %h1 バッチ管理
+  %ol.breadcrumb
+    %li
+      = link_to admin_batches_path do
+        バッチ管理
+    %li.active
+      編集
+
+%section.content
+  = bootstrap_flash
+  = render 'form', site: @batch
