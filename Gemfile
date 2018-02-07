@@ -18,6 +18,12 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+gem "extractcontent", github: "mono0x/extractcontent"
+
+gem 'epitome'
+
+gem 'whenever', require: false
+
 gem 'dotenv-rails'
 gem 'carrierwave'
 gem 'fog'

@@ -7,14 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Site.create!(
-  name: "拡散なうなうなーう",
-  url: "http://torendoimasyun.blog.jp/",
-  domain: "torendoimasyun.blog.jp",
-  rss_url: "http://torendoimasyun.blog.jp/index.rdf",
-  email: "makochibi154@yahoo.co.jp",
+  name: "映画狂の詩",
+  url: "http://crazy-movie-freak.com/",
+  domain: "crazy-movie-freak.com/",
+  rss_url: "http://crazy-movie-freak.com/feed",
+  email: "ana70912@yahoo.co.jp",
   category_code: "2ch",
 )
 
+=begin
 10.times do |i|
   Archive.create!(
     site_id: Site.first.id,
@@ -28,3 +29,4 @@ Site.create!(
     category_code: "2ch",
   )
 end
+=end

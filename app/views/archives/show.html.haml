@@ -1,4 +1,27 @@
 - content_for(:title) { @archive.title }
+= render 'layouts/breadcrumb', breadcrumb: { t("categories.#{@archive.category_code}") => category_path(@archive.category_code), @archive.title => archive_path(@archive) }
 
-%h1
-  = @archive.title
+.content_header
+  .content_header_cover{ style: "#{"background-image: url(#{@archive.image.url})" if @archive.image.present?}"}
+  .article_header
+    .article_header_thumb
+      - if @archive.image.present?
+        = image_tag @archive.image.url
+      - else
+        .icon= raw logo_svg(color: '#fff', width: '35px', height: '35px')
+    .article_header_text
+      %h1.article_header_title= @archive.title
+      %ul.article_header_lead
+        %li.article_header_lead_by=@archive.site.name
+        %li.article_header_lead_date=l(@archive.published_at)
+      .artcile_body{ style: "color:#fff;" }
+        = @archive.body.strimwidth(0, 300).nl2br
+      .article_link
+        = link_to "記事の続きを #{@archive.site.name} で見る", @archive.url, { class: "btn btn-danger" }
+
+.content_body
+  .container
+    %h2 こちらの記事もオススメです
+    %ul.archives.row
+      - @archives.drop(1).each do |archive|
+        = render 'archive2', archive: archive

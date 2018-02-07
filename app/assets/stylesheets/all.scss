@@ -117,11 +117,21 @@
 }
 
 #footer {
-  background-color: #fafafa;
+  border-top: solid 1px #efefef;
+  background: #fff;
   color: #333;
+  font-size: 90%;
 
   .footer_inner {
     padding: 15px 45px;
+
+    .footer_nav {
+      text-align: right;
+    }
+
+    .copyright {
+      margin-top: 10px;
+    }
   }
 }
 
@@ -141,4 +151,10 @@
       }
     }
   }
+}
+
+.pager {
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 1080px;
 }

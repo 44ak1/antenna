@@ -1,7 +1,12 @@
-.container
-  - if @archives.present?
-    %ul.archives.row
-      = render 'top_archive', archive: @archives.last
-      = render @archives.drop(1)
+= render 'layouts/breadcrumb', breadcrumb: { t("categories.#{params[:category]}") => category_path(params[:category]) }
 
-    = paginate @archives
+- if @archives.present?
+  = render 'top_archive', archive: @archives.last
+  .content_body
+    .container
+      %h2="#{t("categories.#{params[:category]}")}カテゴリの新着記事"
+      %ul.archives.row
+        = render @archives.drop(1)
+
+    .pager
+      = paginate @archives

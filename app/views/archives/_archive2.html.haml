@@ -1,6 +1,6 @@
-%li.col-4
+%li.col-6
   .archive
-    = link_to archive_path(archive.uuid) do
+    = link_to archive.url do
       .archive_inner
         .archive_inner_cover{ style: "#{"background-image: url(#{archive.image.url})" if archive.image.present?}"}
         .archive_content
@@ -9,5 +9,5 @@
             %ul.archive_content_lead
               %li.archive_content_lead_by=archive.site.name
               %li.archive_content_lead_date=l(archive.published_at)
-- #            .archive_body{ style: "color:#fff;" }
-- #              = archive.body.strimwidth(0, 130)
+            .archive_body{ style: "color:#fff;" }
+              = archive.body.strimwidth(0, 130)

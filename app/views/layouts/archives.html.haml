@@ -1,9 +1,4 @@
 - content_for(:content_main) do
-  .container
-    .row
-      .col-8
-        = yield
-      .col-4
-        = render 'layouts/sidebar'
+  = yield
 
 = render template: 'layouts/application'

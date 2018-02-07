@@ -16,6 +16,7 @@
 
     %nav.nav
       %ul.nav_categories
+        %li.icon= raw logo_svg(color: '#242424', width: '30px', height: '30px')
         - current = params[:category] || '2ch'
         - categories.each do |category|
           %li.nav_category{ class: current == category ? "current #{category}" : category }

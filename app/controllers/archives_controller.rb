@@ -11,6 +11,7 @@ class ArchivesController < ApplicationController
   end
 
   def show
+    @archives = Archive.active.joins(:site).merge(Site.active)
   end
 
   private

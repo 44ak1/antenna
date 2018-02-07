@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20170828014317) do
     t.string "url", limit: 255
     t.string "title", limit: 255
     t.string "description", limit: 255
+    t.text "body"
     t.string "real_image_url", limit: 255
     t.string "image", limit: 255
     t.string "tag", limit: 511

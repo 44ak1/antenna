@@ -19,10 +19,18 @@ class Site < ApplicationRecord
     begin
       ActiveRecord::Base.transaction do
         rss_entries.each do |item|
+          body = open(item.url) do |io|
+            charset = io.charset
+            html = io.read
+            body, title = ExtractContent.analyse(html)
+            body
+          end
+
           self.archives.create!(
-            title:        item.title,
+            title:        item.title || title,
             url:          item.url,
             description:  (item.content || item.summary),
+            body:         body,
             published_at: item.published.to_time,
           )
         end

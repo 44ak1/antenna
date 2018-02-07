@@ -5,6 +5,7 @@ class CreateArchives < ActiveRecord::Migration[5.1]
       t.string :url, limit: 255
       t.string :title, limit: 255
       t.string :description, limit: 255
+      t.text :body
       t.string :real_image_url, limit: 255
       t.string :image, limit: 255
       t.string :tag, limit: 511
